@@ -1,0 +1,44 @@
+{
+  "name": "osrm-wheremap",
+  "version": "0.1.0",
+  "description": "wheremap based on osm",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "eslint src/*.js i18n/*.js",
+    "replace": "node ./scripts/replace.js",
+    "compile": "browserify -d src/index.js -s osrm > bundle.raw.js && uglifyjs bundle.raw.js -c -m --source-map=bundle.js.map -o bundle.js",
+    "build": "npm run replace && npm run compile && cp node_modules/leaflet/dist/leaflet.css css/leaflet.css",
+    "start-index": "budo src/index.js --serve=bundle.js --live -d | bistre",
+    "start": "npm run build && npm run start-index",
+    "prepub": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "osrm-frontend"
+  },
+  "keywords": [
+    "osrm",
+    "lrm",
+    "directions",
+    "routing",
+    "api"
+  ],
+  "author": "amy lee walton",
+  "license": "ISC",
+  "devDependencies": {
+    "bistre": "^1.0.1",
+    "browserify": "^14.3.0",
+    "budo": "^9.4.0",
+    "uglify-js": "^2.8.0"
+  },
+  "dependencies": {
+    "jsonp": "^0.2.0",
+    "leaflet": "^0.7.7",
+    "leaflet-control-geocoder": "^1.2.1",
+    "leaflet-routing-machine": "~3.1.0",
+    "leaflet.locatecontrol": "^0.44.0",
+    "local-storage": "^1.4.2",
+    "osrm-text-instructions": "0.5.1",
+    "qs": "^6.1.0"
+  }
+}

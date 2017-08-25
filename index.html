@@ -7,9 +7,11 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-	<link rel="stylesheet" href="./leafletlib/leaflet.css" />
+	<!-- <link rel="stylesheet" href="./leafletlib/leaflet.css" /> -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
 	<link rel="stylesheet" href="./css/site.css" />
-	<script src="./leafletlib/leaflet.js"></script>	
+	<link rel="stylesheet" href="./dist/leaflet-routing-machine.css" />
+	<!-- <script src="./leafletlib/leaflet.js"></script>	 -->
 
 </head>
 
@@ -17,8 +19,11 @@
 
 <div class="map"> 
    	<div id="mapid"  class='map'></div>
-    <script src="./src/index.js"></script> 
-
+    <!-- <script src="bundle.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script src="./dist/leaflet-routing-machine.js"></script>
+    <script src="./src/index.js"></script>  
+ 	
  	<div class="search-box">
  		 	<form class="search-form">
  		 		<input type="text" class="search-text" name="q"/>
